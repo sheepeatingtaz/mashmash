@@ -115,7 +115,8 @@ if not pygame.font: print 'Warning, fonts disabled'
 if not pygame.mixer: print 'Warning, sound disabled'
  
 pygame.init() 
-window = pygame.display.set_mode(pygame.display.list_modes()[-1], pygame.FULLSCREEN) 
+print pygame.display.list_modes()
+window = pygame.display.set_mode(pygame.display.list_modes()[0], pygame.FULLSCREEN) 
 pygame.display.set_caption('MashMash') 
 screen = pygame.display.get_surface() 
 
