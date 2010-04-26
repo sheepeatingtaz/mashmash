@@ -89,8 +89,8 @@ def print_image():
     ref = random.randint(0, len(images) -1)
     img = images[ref]
     sounds[ref].play()
-    w = random.randint(0, 800-img.get_width())
-    h = random.randint(0, 600-img.get_height())
+    w = random.randint(0, WIDTH-img.get_width())
+    h = random.randint(0, HEIGHT-img.get_height())
     screen.blit(img, (w, h)) 
 
 # Is the key that was pressed alphanumeric
@@ -103,8 +103,8 @@ def print_letter(key):
     text = font.render(chr(key), 1, colors[random.randint(0, len(colors) -1)])
     textpos = text.get_rect()
     center = (textpos.width / 2, textpos.height / 2)
-    w = random.randint(0+center[0], 800-center[0])
-    h = random.randint(0+center[1], 600-center[1])
+    w = random.randint(0+center[0], WIDTH-center[0])
+    h = random.randint(0+center[1], HEIGHT-center[1])
     textpos.centerx = w
     textpos.centery = h
     screen.blit(text, textpos) 
@@ -115,7 +115,10 @@ if not pygame.font: print 'Warning, fonts disabled'
 if not pygame.mixer: print 'Warning, sound disabled'
  
 pygame.init() 
-window = pygame.display.set_mode(pygame.display.list_modes()[0], pygame.FULLSCREEN) 
+dimensions = pygame.display.list_modes()[0]
+WIDTH = dimensions[0]
+HEIGHT = dimensions[1]
+window = pygame.display.set_mode(dimensions, pygame.FULLSCREEN) 
 pygame.display.set_caption('MashMash') 
 screen = pygame.display.get_surface() 
 
