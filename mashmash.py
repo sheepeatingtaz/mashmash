@@ -12,9 +12,9 @@ def load_image(name, colorkey=None):
     
     try:
         image = pygame.image.load(fullname)
-    except pygame.error, message:
-        print "Cannot load image:", name
-        raise SystemExit, message
+    except pygame.error as message:
+        print(f"Cannot load image:{name}")
+        raise SystemExit(message)
     image = image.convert()
     if colorkey is not None:
         if colorkey is -1:
@@ -31,9 +31,9 @@ def load_sound(name):
     fullname = os.path.join(progInstallBase, 'data', name)
     try:
         sound = pygame.mixer.Sound(fullname)
-    except pygame.error, message:
-        print "Cannot load sound:", fullname
-        raise SystemExit, message
+    except pygame.error as message:
+        print (f"Cannot load sound:{name}")
+        raise SystemExit(message)
     return sound
 
 # Loads a list of sounds
@@ -50,8 +50,10 @@ def input(events, quit_pos):
         if event.type == QUIT: 
             sys.exit(0) 
         elif event.type == KEYDOWN or event.type == MOUSEBUTTONDOWN:
-            #print "eepos: %s" % (quit_pos)
-            
+            print(f"eepos: {quit_pos}")
+            print(event.typequitsdcibnsdcbasdkhcb)
+            if hasattr(event, "key"):
+                print(f"key: {event.key}")
             if event.type == KEYDOWN:
                 if event.key == K_q:
                     quit_pos = 1
@@ -111,8 +113,8 @@ def print_letter(key):
 
 # Main application
 #
-if not pygame.font: print 'Warning, fonts disabled'
-if not pygame.mixer: print 'Warning, sound disabled'
+if not pygame.font: print('Warning, fonts disabled')
+if not pygame.mixer: print('Warning, sound disabled')
  
 pygame.init() 
 dimensions = pygame.display.list_modes()[0]
