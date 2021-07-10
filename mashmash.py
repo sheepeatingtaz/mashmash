@@ -51,7 +51,7 @@ def input(events, quit_pos):
             sys.exit(0) 
         elif event.type == KEYDOWN or event.type == MOUSEBUTTONDOWN:
             print(f"eepos: {quit_pos}")
-            print(event.typequitsdcibnsdcbasdkhcb)
+            print(event.type)
             if hasattr(event, "key"):
                 print(f"key: {event.key}")
             if event.type == KEYDOWN:
